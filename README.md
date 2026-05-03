@@ -1,39 +1,42 @@
-**Welcome to your Base44 project** 
+# Foxley Store (Full-stack MVP)
 
-**About**
-
-View and Edit  your app on [Base44.com](http://Base44.com) 
-
-This project contains everything you need to run your app locally.
-
-**Edit the code in your local development environment**
-
-Any change pushed to the repo will also be reflected in the Base44 Builder.
-
-**Prerequisites:** 
-
-1. Clone the repository using the project's Git URL 
-2. Navigate to the project directory
-3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
-
+## Frontend
+```bash
+npm install
+npm run dev
 ```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
-
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
+Set `.env`:
+```bash
+VITE_API_URL=http://localhost:5000/api
+VITE_RAZORPAY_KEY_ID=rzp_test_xxx
 ```
 
-Run the app: `npm run dev`
+## Backend
+```bash
+cd server
+npm install
+cp .env.example .env
+npm run dev
+```
 
-**Publish your changes**
+Required backend env:
+- `MONGO_URI`
+- `JWT_SECRET`
+- `RAZORPAY_KEY_ID`
+- `RAZORPAY_KEY_SECRET`
+- `CLIENT_URL`
 
-Open [Base44.com](http://Base44.com) and click on Publish.
-
-**Docs & Support**
-
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
-
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+## APIs
+- `GET /api/products`
+- `GET /api/products/:id`
+- `POST /api/products` (admin)
+- `PUT /api/products/:id` (admin)
+- `DELETE /api/products/:id` (admin)
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `POST /api/orders`
+- `GET /api/orders/me`
+- `GET /api/orders` (admin)
+- `PUT /api/orders/:id/status` (admin)
+- `POST /api/orders/payment/create`
+- `POST /api/orders/payment/verify`

@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import { allOrders, createOrder, createRazorpayOrder, myOrders, updateOrderStatus, verifyPayment } from '../controllers/orderController.js';
+import { adminOnly, protect } from '../middleware/auth.js';
+const r = Router();
+r.post('/', protect, createOrder);
+r.get('/me', protect, myOrders);
+r.get('/', protect, adminOnly, allOrders);
+r.put('/:id/status', protect, adminOnly, updateOrderStatus);
+r.post('/payment/create', protect, createRazorpayOrder);
+r.post('/payment/verify', protect, verifyPayment);
+export default r;
