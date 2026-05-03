@@ -1,0 +1,166 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly identifier"
+    },
+    "description": {
+      "type": "string",
+      "description": "Full product description"
+    },
+    "short_description": {
+      "type": "string",
+      "description": "Short tagline"
+    },
+    "price": {
+      "type": "number",
+      "description": "Base price in INR"
+    },
+    "compare_price": {
+      "type": "number",
+      "description": "Original/MRP price"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "makhana",
+        "nuts",
+        "seeds",
+        "trail-mix",
+        "combos",
+        "gift-boxes"
+      ],
+      "default": "makhana"
+    },
+    "flavor": {
+      "type": "string",
+      "description": "Flavor name e.g. Peri-Peri, Classic Salt"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Image URLs"
+    },
+    "thumbnail": {
+      "type": "string",
+      "description": "Primary image URL"
+    },
+    "weight_options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "weight": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "stock": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "stock": {
+      "type": "number",
+      "default": 0
+    },
+    "sku": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_bestseller": {
+      "type": "boolean",
+      "default": false
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "nutritional_info": {
+      "type": "object",
+      "properties": {
+        "calories": {
+          "type": "number"
+        },
+        "protein": {
+          "type": "number"
+        },
+        "carbs": {
+          "type": "number"
+        },
+        "fat": {
+          "type": "number"
+        },
+        "fiber": {
+          "type": "number"
+        }
+      }
+    },
+    "ingredients": {
+      "type": "string"
+    },
+    "allergens": {
+      "type": "string"
+    },
+    "shelf_life": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "number",
+      "default": 0
+    },
+    "review_count": {
+      "type": "number",
+      "default": 0
+    },
+    "sort_order": {
+      "type": "number",
+      "default": 0
+    },
+    "halo_color": {
+      "type": "string",
+      "description": "CSS color for product glow effect"
+    }
+  },
+  "required": [
+    "name",
+    "price"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

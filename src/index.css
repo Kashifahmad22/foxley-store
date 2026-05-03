@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 120 20% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 142 72% 29%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 24 95% 47%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 120 10% 95%;
+    --muted-foreground: 222 20% 40%;
+    --accent: 24 95% 47%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 120 10% 88%;
+    --input: 120 10% 88%;
+    --ring: 142 72% 29%;
+    --radius: 0.75rem;
+
+    --foxley-green: #16A34A;
+    --foxley-orange: #EA580C;
+    --foxley-bone: #F9FAF9;
+    --foxley-ink: #0F172A;
+    --foxley-gold: #D97706;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 120 20% 96%;
+    --card: 222 47% 9%;
+    --card-foreground: 120 20% 96%;
+    --popover: 222 47% 9%;
+    --popover-foreground: 120 20% 96%;
+    --primary: 142 72% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 24 95% 55%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 222 30% 15%;
+    --muted-foreground: 120 10% 60%;
+    --accent: 24 95% 55%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 142 72% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-jakarta;
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-jakarta font-extrabold tracking-tight;
+    line-height: 1.1;
+  }
+}
+
+@layer utilities {
+  .text-foxley-green { color: #16A34A; }
+  .text-foxley-orange { color: #EA580C; }
+  .text-foxley-ink { color: #0F172A; }
+  .bg-foxley-green { background-color: #16A34A; }
+  .bg-foxley-orange { background-color: #EA580C; }
+  .bg-foxley-bone { background-color: #F9FAF9; }
+  .bg-foxley-ink { background-color: #0F172A; }
+  .border-foxley-green { border-color: #16A34A; }
+  .border-foxley-orange { border-color: #EA580C; }
+
+  .halo-green {
+    position: relative;
+  }
+  .halo-green::before {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(ellipse at center, rgba(22, 163, 74, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .halo-orange::before {
+    background: radial-gradient(ellipse at center, rgba(234, 88, 12, 0.25) 0%, transparent 70%);
+  }
+
+  .kinetic-scale {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .kinetic-scale:hover {
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

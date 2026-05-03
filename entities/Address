@@ -1,0 +1,56 @@
+{
+  "name": "Address",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string",
+      "enum": [
+        "home",
+        "work",
+        "other"
+      ],
+      "default": "home"
+    },
+    "name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address_line1": {
+      "type": "string"
+    },
+    "address_line2": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "pincode": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string",
+      "default": "India"
+    },
+    "is_default": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "user_email",
+    "name",
+    "phone",
+    "address_line1",
+    "city",
+    "state",
+    "pincode"
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "order_number": {
+      "type": "string"
+    },
+    "customer_email": {
+      "type": "string"
+    },
+    "customer_name": {
+      "type": "string"
+    },
+    "customer_phone": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string"
+          },
+          "product_name": {
+            "type": "string"
+          },
+          "product_image": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "price": {
+            "type": "number"
+          },
+          "weight": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "subtotal": {
+      "type": "number"
+    },
+    "discount": {
+      "type": "number",
+      "default": 0
+    },
+    "shipping_cost": {
+      "type": "number",
+      "default": 0
+    },
+    "total": {
+      "type": "number"
+    },
+    "coupon_code": {
+      "type": "string"
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": [
+        "upi",
+        "card",
+        "netbanking",
+        "wallet",
+        "cod"
+      ],
+      "default": "upi"
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "paid",
+        "failed",
+        "refunded"
+      ],
+      "default": "pending"
+    },
+    "payment_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "placed",
+        "confirmed",
+        "processing",
+        "shipped",
+        "out_for_delivery",
+        "delivered",
+        "cancelled",
+        "returned"
+      ],
+      "default": "placed"
+    },
+    "shipping_address": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address_line1": {
+          "type": "string"
+        },
+        "address_line2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "pincode": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string",
+          "default": "India"
+        }
+      }
+    },
+    "shiprocket_order_id": {
+      "type": "string"
+    },
+    "shiprocket_shipment_id": {
+      "type": "string"
+    },
+    "tracking_number": {
+      "type": "string"
+    },
+    "tracking_url": {
+      "type": "string"
+    },
+    "courier_name": {
+      "type": "string"
+    },
+    "estimated_delivery": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "customer_email",
+    "items",
+    "total"
+  ]
+}
